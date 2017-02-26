@@ -2,8 +2,8 @@ public class LifeBoard {
 	private int rows, cols, gen;	
 	public boolean[][] theBoard; 
 
-	/** Skapar en spelplan med rows rader och cols kolonner. Spelplanen är från
-	    början tom, dvs alla rutorna är tomma och generationsnumret är 1. */	
+	/** Creates the game's board with rows and columns cols. The board is empty in the beginning, with all squares
+	    empty and generation number is 1. */	
 	public LifeBoard(int rows, int cols) {
 		this.rows = rows;
 		this.cols = cols;
@@ -11,8 +11,8 @@ public class LifeBoard {
 		this.gen = 1;
 	}
 
-	/** Ger true om det finns en individ i rutan med index row, col, false annars. 
-	    Om index row, col är utanför spelplanen returneras false */
+	/** Returns true if there is a living cell with index row, col, otherwise returns false. 
+	    If index row, col is outside of the board false is returned */
 	public boolean get(int row, int col) {
 		row = row + 1;
 		col = col + 1;
@@ -24,7 +24,7 @@ public class LifeBoard {
 		return false;
 	}
 
-	/** Lagrar värdet val i rutan med index row, col */
+	/** Stores value val in the square with index row, col */
 	public void put(int row, int col, boolean val) {
 		row = row + 1;
 		col = col + 1;
@@ -35,22 +35,22 @@ public class LifeBoard {
 		}
 	}
 
-	/** Tar reda på antalet rader */
+	/** Returns number of rows */
 	public int getRows() {
 		return this.rows;
 	}
 
- 	/** Tar reda på antalet kolonner */
+ 	/** Returns number of columns */
 	public int getCols() {
 		return this.cols;
 	}
 
-	/** Tar reda på aktuellt generationsnummer */
+	/** Returns the current generation number */
 	public int getGeneration() {
 		return this.gen;
 	}
 
-	/** Ökar generationsnumret med ett */
+	/** Increase generation number with 1 */
 	public void increaseGeneration() {
 		gen++;
 	}
