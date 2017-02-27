@@ -12,7 +12,7 @@ public class LifeView extends Frame {
 	private Square[][] squares;
 	private int rows,cols;
 
-	/** Skapar ett LifeView-fönster för spelplanen board */
+	/** Create a LifeView-window for the given board */
 	public LifeView(LifeBoard board) {
 		super("Life");
 		this.board = board;
@@ -66,13 +66,13 @@ public class LifeView extends Frame {
 		setVisible(true);
 	}
 
-	/** Ritar upp de fixa delarna av spelplanen (rutnätet,
-      generationsräknaren och knapparna) */
+	/** Draws the fixed parts of the board (the grid,
+      generation counter and buttons) */
 	public void drawBoard() {
 		repaint();
 	}
 
-	/** Ritar om de delar av ritfönstret som ändrats sedan föregående uppritning */
+	/** Draws the parts of the window that has changed since the previous redraw */
 	public void update() {
 		repaint();
 		for (int i = 0; i<rows; i++)
@@ -81,11 +81,11 @@ public class LifeView extends Frame {
 					squares[i][k].repaint();
 	}
 
-	/** Väntar tills användaren klickar med musen. Ger:
-      1: Klick i ruta pÂ spelplanen. Index för rutan kan hämtas med getRow
+	/** Waits until the user clicks with the mouse. Gives:
+      1: Click in the square on the board. Index for the sqaure is obtained with getRow
 			och getCol
-      2: Klick i Next-rutan
-      3: Klick i Quit-rutan */
+      2: Clicks in Next-button
+      3: Clicks in Quit-button */
 	public int getCommand() {
 		AWTEvent lastEvent = eventQueue.getNextEvent();
 		if (lastEvent.getSource() instanceof Square) {
@@ -100,12 +100,12 @@ public class LifeView extends Frame {
 		return lastCommand;
 	}
 
-	/** Tar reda pÂ radnummer för den klickade rutan efter kommando nr 1 */
+	/** Returns the row number for the clicked square after the command nr 1 */
 	public int getRow() {
 		return lastRow;
 	}
 
-	/** Tar reda pÂ kolonnummer för den klickade rutan efter kommando nr 1 */
+	/** Returns the column number for the clicked square after the command nr 1 */
 	public int getCol() {
 		return lastCol;
 	}
